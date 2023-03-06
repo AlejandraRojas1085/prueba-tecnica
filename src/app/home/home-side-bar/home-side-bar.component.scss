@@ -1,0 +1,143 @@
+.desktop_sidebar {
+  transition: all 0.1s linear;
+  position: relative;
+  background-image: linear-gradient(0, #ffffff, #c4cad1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &_logo {
+    display: flex;
+    height: calc(var(--vh, 1vh) * 11);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: column;
+    position: relative;
+
+    .text_collapsed, .text_non_collapsed {
+      color: #fff;
+      font-size: 1.4vmin;
+    }
+
+    .text_collapsed {
+
+    }
+
+    .text_non_collapsed {
+      position: absolute;
+      bottom: 10%;
+      right: 10%;
+    }
+
+    img {
+      object-fit: contain;
+    }
+
+    img:nth-of-type(1) {
+      width: 40%;
+    }
+
+    img:nth-of-type(2) {
+      width: 85%;
+    }
+  }
+
+  &_sidebar {
+    flex: auto;
+    width: 100%;
+    border-right: solid 1px #6699ff33;
+
+    .scroll {
+      height: calc(100% - 55px);
+      z-index: 1;
+      padding: 0;
+      margin-right: 0;
+      background: none;
+      /*max-width: 250px;*/
+    }
+  }
+
+  &_arrow {
+    cursor: pointer;
+    z-index: 401;
+    border-radius: 20px;
+    color: #01052B;
+    position: absolute;
+    right: -10px;
+    bottom: 6%;
+    background-color: #6599FF;
+    pointer-events: unset !important;
+  }
+}
+
+app-home-side-bar{
+  margin-right: -1px;
+}
+
+.itemContainer {
+  border: 0;
+  box-shadow: none !important;
+  background: none !important;
+  height: calc(95% / 8);
+  min-height: 3.5rem;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-bottom: solid 1px #6699ff33;
+  display: flex;
+  flex-direction: column;
+
+  &_wrapper {
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    color: #5c7ea6;
+    position: relative;
+  }
+}
+
+.tooltiptext {
+	visibility: hidden;
+	width: 150px;
+	background-color: rgb(20, 55, 109);
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	font-family: "Montserrat", sans-serif;
+
+	/* tooltip position */
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: 100%;
+  transform: translate(0, -50%);
+}
+
+.itemContainer_wrapper:hover .tooltiptext {
+	visibility: visible;
+}
+
+.item:hover {
+  background-color: #6699ff33;
+}
+
+.item_active {
+  position: absolute;
+  width: 105%;
+  height: 100%;
+  background-color: #6699ff33;
+  z-index: 10;
+}
+
+.menuTitle {
+  font-family: "Montserrat", sans-serif;
+  //font-family: 'Montserrat',cursive;
+  font-size: 2vh;
+  margin: auto;
+  text-align: center;
+  color: inherit;
+  line-height: inherit;
+}

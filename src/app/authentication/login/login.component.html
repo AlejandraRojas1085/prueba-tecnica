@@ -1,0 +1,52 @@
+<div class="login-wrapper">
+  <!-- Background image -->
+  <div class="Fondo"></div>
+  <!-- Container -->
+  <div  class="form-wrapper fadeInDown">
+    <ngx-loading [show]="occupied" [config]="{animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: 'rgb(5, 53, 107)', backdropBorderRadius: '3px'}"></ngx-loading>
+    <div class="wrapper ScrollBar">
+      <div id="formContent" >
+        <!-- Icon -->
+        <div class="fadeIn first" >
+           <img class="first-img" src="/assets/Login/logo Logon@1x.png" id="icon" alt="User Icon" />
+        </div>
+        <div class="full-screen">
+          <!-- Login form -->
+          <form novalidate [formGroup]="form" class="full-screen" [ngClass]="this.passRecover ? 'formFuera':'formDentro'">
+            <!-- User inpupt -->
+            <div class=" mt-10">
+              <mat-label class="main-label">Usuario</mat-label>
+              <div class="input-class">
+                <img class="profile-img" src="/assets/iconos/perfil@PYP.png"/>
+                <input required="required" formControlName="user" class="menus"/>
+              </div>
+            </div>
+            <!-- Password input -->
+            <div class=" mt-10">
+              <mat-label class="main-label">Contraseña</mat-label>
+              <div class="input-class">
+                <mat-icon class="input-class-icon">vpn_key</mat-icon>
+                <input [type]="this.showPassword ? 'text':'password'"  class="menus" required="required" formControlName="password"/>
+                <mat-icon  class="password-icon" (click)="ChangePassMode()">{{this.showPassword ? 'visibility_off':'visibility'}}</mat-icon>
+              </div>
+            </div>
+            <!-- Check and recover password -->
+<!--            <div class="recover-password">-->
+<!--              <mat-checkbox [checked]="rememberUser" (change)="this.ChangeCheck()" class="auxiliary-btn remember" >Recuérdame</mat-checkbox>-->
+<!--              <div class= "recover-pass"(click)="recoverPassword()">-->
+<!--                <mat-icon class="lock-icon">lock</mat-icon>-->
+<!--                <mat-label class="auxiliary-btn" >-->
+<!--                  Olvidé mi contraseña-->
+<!--                </mat-label>-->
+<!--              </div>-->
+<!--            </div>-->
+            <!-- Action button -->
+            <div class="button-container" class="mt-10">
+              <button type="submit" (click)="login()" class="fadeIn fourth submit-btn login-btn" [disabled]="loginInProgress"><span>Iniciar Sesión</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

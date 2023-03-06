@@ -1,0 +1,40 @@
+<div class="desktop_sidebar"
+     [style.width]="collapsed? '6.5vw':'22.2vh'"
+     [style.overflow]="hideToggle ? 'hidden':''">
+  <div class="desktop_sidebar_logo"
+       [ngClass]="{collapsed:collapsed}"
+       title="Ir al dashboard">
+    <img [hidden]="!collapsed" src="/assets/sidebar/imagotipo@1x.png" alt="image"/>
+    <img [hidden]="collapsed" src="/assets/sidebar/LOGO HORIZONTAL@1x.png" alt="image"/>
+  </div>
+  <!-- sidebar menus container -->
+  <div class="desktop_sidebar_sidebar">
+    <!-- card with all of the options-->
+    <div class="scroll" id="ScrollBar">
+      <!-- Option container -->
+      <div *ngFor="let menu of menusList" class="itemContainer">
+        <div class="itemContainer_wrapper"
+             (click)="gotoMenu(menu)"
+             [ngClass]="selectedMenu == menu? '':'item'">
+          <div [ngClass]="selectedMenu == menu ? 'item_active':''"></div>
+          <img *ngIf="menu.nombre !== 'Programas'"
+               [style.width]="collapsed ? '30%':'20%'"
+               [style.margin]="collapsed ? 'auto':'auto 0 auto 10%'"
+               src="/assets/iconos/{{menu.icono}}" alt="image"/>
+          <img *ngIf="menu.nombre === 'Programas'"
+               [style.width]="collapsed ? '20%':'14%'"
+               [style.margin]="collapsed ? 'auto':'auto 3% auto 13%'"
+               src="/assets/iconos/{{menu.icono}}" alt="image"/>
+          <h4 class="menuTitle" mat-line *ngIf="!collapsed">{{menu.nombre}}</h4>
+          <span class="tooltiptext" *ngIf="collapsed">{{menu.nombre}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-icon *ngIf="!hideToggle"
+            class="desktop_sidebar_arrow"
+            mat-list-icon
+            (click)="collapse()">
+    {{ collapsed ? 'keyboard_arrow_right' : 'keyboard_arrow_left' }}
+  </mat-icon>
+</div>

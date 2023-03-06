@@ -1,0 +1,108 @@
+// CSS Reset, comment out if not required or using a different module
+@import "~minireset.css/minireset";
+/* You can add global styles to this file, and also import other style files */
+/*
+*/
+@import "assets/fonts";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+@import "src/assets/scss/_colors.scss";
+
+html,
+body {
+  height: 100%;
+  --vh: 1vh;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.igx-overlay {
+  z-index: 10000;
+  position: relative;
+}
+
+.igx-time-picker__header {
+  background: #f5f5f5 !important;
+}
+
+.igx-time-picker__item--selected {
+  color: #ffffff !important;
+}
+
+.igx-button--flat {
+  color: #ffffff !important;
+}
+
+.mapboxgl-popup-content {
+  background-color: rgb(252, 252, 252);
+  color: rgb(255, 255, 255);
+  opacity: 0.7;
+  padding: 4px;
+  text-align: center;
+}
+
+.mapboxgl-ctrl-icon {
+  color: red;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+.ScrollBar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #e4e4e3;
+}
+
+.ScrollBar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #cacaca;
+}
+
+.mat-horizontal-content-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #e4e4e3;
+}
+
+.mat-horizontal-content-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #cacaca;
+}
+
+.checkbox {
+  margin-left: 18px;
+}
+
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+@include igx-core();
+@include igx-theme($default-palette);
+
+*:not(.DAGF):not(mat-icon):not(.ae-picker-item):not(.igx-icon) {
+  font-family: Montserrat, sans-serif ;
+}
+
+.DAGF {
+}
+
+.EstiloToolTipBarra {
+  font-size: large;
+  white-space: pre-line !important;
+}
+
+mat-icon {
+  pointer-events: none;
+}

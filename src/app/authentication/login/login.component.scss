@@ -1,0 +1,525 @@
+.login-wrapper {
+  display: flex;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  overflow: hidden
+}
+
+.profile-img {
+  height: 100%;
+  width: 7%;
+  margin: auto;
+}
+
+.first {
+  margin: 0;
+  margin-top: 10%;
+  height: 200px;
+
+  &-img {
+    height: 200px;
+    width: unset !important;
+  }
+}
+
+.formFuera {
+  transition: all 0.2s linear;
+  position: absolute;
+  margin-left: 100vw;
+}
+
+.formDentro {
+  transition: all 0.2s linear;
+  position: absolute;
+  margin-left: 0;
+}
+
+.Fondo {
+  background-image: url("/assets/Login/fondo@1x.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.form-wrapper {
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background-image: linear-gradient(-90deg, white, #ffffffb3);
+  z-index: 1;
+  border-radius: 20px;
+}
+
+#formContent {
+  width: 80%;
+  height: 90%;
+  padding: 0;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.full-screen {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mt-10 {
+  margin-top: 10%;
+}
+
+.login-btn {
+  height: unset !important;
+}
+
+.input-class {
+  display: flex;
+  border-radius: 20px;
+  border: solid 2px #33348b;
+  background-color: white;
+  overflow: hidden;
+  padding: 5px;
+  margin-top: 3.5%;
+
+  &-icon {
+    margin: auto;
+    width: 10%;
+    color: #449BFF;
+    transform: scaleX(-1);
+  }
+
+  .password-icon {
+    margin: auto;
+    width: 10%;
+    color: #449BFF;
+    cursor: pointer;
+    pointer-events: unset !important;
+  }
+}
+
+.recover-password {
+  display: flex;
+  margin-top: 5%;
+
+  .recover-pass {
+    display: flex;
+    cursor: pointer;
+    margin-left: auto;
+
+    .auxiliary-btn {
+      margin: auto 0;
+      font-weight: 300;
+      color: #33348B;
+    }
+  }
+
+  .lock-icon {
+    margin-left: auto;
+    font-size: 20px;
+    color: #33348B;
+  }
+
+
+}
+
+.main-label {
+  color: #414393;
+  font-size: 140%;
+}
+
+.auxiliary-btn {
+  font-size: unset;
+}
+
+.remember {
+  font-weight: 300;
+  color: #33348B;
+}
+
+.submit-btn {
+  color: white;
+  background-image: linear-gradient(-90deg, #31488c, #4496fd);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 40px;
+  width: 100%;
+}
+
+.button-back {
+  text-align: center;
+  color: white;
+  width: 45%;
+  height: 100%;
+  background-color: gray;
+  border-radius: 40px;
+  padding-left: 0;
+  padding-right: 0;
+  cursor: pointer;
+}
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 5px;
+}
+
+.button-container {
+  margin: 10% 0;
+}
+
+.recoveryContainer {
+  height: unset;
+  margin: 10% 0 10%;
+  display: flex;
+  flex-direction: column;
+
+  .field-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+
+    .field-label {
+      color: #414393;
+      font-size: 140%;
+      padding-top: 2%;
+    }
+  }
+
+  .pd-6 {
+    padding: 6px;
+  }
+}
+
+.recover-btns {
+  display: flex;
+  margin-bottom: 10%;
+
+  .submit-btn {
+    width: 45%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+  }
+}
+
+
+/*Esto es para implementar mobile-first y pasar al desktop*/
+@media (min-width: 700px) {
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .auxiliary-btn {
+    font-size: 100%;
+  }
+  .form-wrapper {
+    margin: 0;
+    margin-left: auto;
+    width: 38%;
+    height: 100%;
+    background-image: linear-gradient(-90deg, white, #ffffffb3);
+    z-index: 1;
+    border-radius: unset;
+  }
+  #formContent {
+    width: 70%;
+    /*height: 90%;*/
+    height: 930px;
+    padding: 0;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .submit-btn {
+    color: white;
+    background-image: linear-gradient(-90deg, #31488c, #4496fd);
+    cursor: pointer;
+    border-radius: 40px;
+    width: 100%;
+    font-size: 120%;
+  }
+
+  .button-back {
+    font-size: 120%;
+  }
+
+  .button-container {
+    margin: auto 0;
+  }
+
+  .recoveryContainer {
+    height: 60%;
+  }
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent {
+  .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #4492f7 !important;
+  }
+  .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #4492f7;
+  }
+}
+
+::ng-deep .mat-checkbox.mat-accent {
+  .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #4492f7 !important;
+  }
+}
+/* BASIC */
+
+a {
+  color: #92badd;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 40px 8px 10px 8px;
+  color: #cccccc;
+}
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+/* FORM TYPOGRAPHY*/
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+  background-color: #56baed;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #39ace7;
+}
+
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+input[type="password"],
+.menus {
+  color: #585858;
+  padding: 5px 0;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  /*margin: 5px 0;*/
+  width: 90%;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  border: unset;
+}
+
+input[type="text"]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #ff0707;
+}
+
+input[type="text"]:placeholder {
+  color: #cccccc;
+}
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after {
+  width: 100%;
+}
+
+h1 {
+  color: #60a0ff;
+}
+
+/* OTHERS */
+
+*:focus {
+  outline: none;
+}
+
+#icon {
+  width: 70%;
+}

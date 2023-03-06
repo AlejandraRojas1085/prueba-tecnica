@@ -1,0 +1,28 @@
+$blue-light: #6699ff;
+$blue-dark: #000024;
+$blue-light-transparent: #4692d180;
+$blue-light-transparent-two: #4692d140;
+$blue-light-transparent-three: #4692d110;
+$white-grey: #f0f0f0;
+$gray-light: #e3e3e3;
+$white-main-section: #f9f9f9;
+
+@mixin gradient-default {
+    background: rgb(68, 152, 253);
+    background: linear-gradient(
+        90deg,
+        rgba(68, 152, 253, 1) 0%,
+        rgba(66, 152, 255, 1) 25%,
+        rgba(64, 146, 254, 1) 50%,
+        rgba(57, 136, 255, 1) 75%,
+        rgba(54, 127, 255, 1) 100%
+    );
+}
+
+@mixin shadow-default {
+    -webkit-box-shadow: 0px 14px 12px -10px rgba(89, 89, 89, 1);
+    -moz-box-shadow: 0px 14px 12px -10px rgba(89, 89, 89, 1);
+    box-shadow: 0px 14px 12px -10px rgba(89, 89, 89, 1);
+}
+
+$blue-sky: #c7e0ff;

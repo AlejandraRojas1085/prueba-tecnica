@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <!-- header and title of section -->
+  <div class="dashboard-wraper">
+    <div class="header">
+
+    </div>
+  </div>
+  <!-- Showing dashboard with information -->
+  <div class="ScrollBar dashboard-box-wrapper">
+    <br />
+    <ngx-loading [show]="loading"
+      [config]="{animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: 'rgb(255,255,255)', backdropBorderRadius: '3px'}"></ngx-loading>
+
+    <app-dashboard-box></app-dashboard-box>
+
+    <br />
+  </div>
+</div>

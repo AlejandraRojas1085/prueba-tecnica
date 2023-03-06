@@ -1,0 +1,171 @@
+{
+  "extends": "tslint:recommended",
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+  "rules": {
+    "align": {
+      "options": [
+        "parameters",
+        "statements"
+      ]
+    },
+    "radix": false,
+    "array-type": false,
+    "curly": true,
+    "no-boolean-literal-compare": true,
+    "arrow-return-shorthand": [true, "multiline"],
+    "deprecation": {
+      "severity": "warning"
+    },
+    "one-variable-per-declaration": [true, "ignore-for-loop"],
+//    "completed-docs": [
+//      true,
+//      {
+//        "enums": true,
+//        "functions": {"visibilities": ["exported"]},
+//        "methods": {"locations": "instance", "privacies": ["public", "protected"]},
+//        "properties": {
+//          "tags": {"content": {"see": ["#.*"]}, "existence": ["inheritdoc"]}
+//        }
+//      }
+//    ],
+    "no-duplicate-imports": [true, {"allow-namespace-imports": true}],
+    "eofline": true,
+    "import-blacklist": [
+      true,
+      "rxjs/Rx"
+    ],
+    "import-spacing": true,
+    "indent": {
+      "options": [
+        "spaces"
+      ]
+    },
+    "no-trailing-whitespace": false,
+    "max-classes-per-file": false,
+    "member-access": true,
+    "member-ordering": [
+      false,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-angle-bracket-type-assertion":false,
+    "no-empty": false,
+    "interface-name": false,
+    "no-inferrable-types": [
+      false,
+      "ignore-params"
+    ],
+    "no-non-null-assertion": true,
+    "no-redundant-jsdoc": true,
+    "no-switch-case-fall-through": true,
+    "prefer-for-of": false,
+    "no-var-requires": false,
+    "one-line": [true, "check-catch", "check-finally"],
+    "object-literal-sort-keys": false,
+    "object-literal-key-quotes": false,
+//    "object-literal-key-quotes": [
+//      true,
+//      "as-needed"
+//    ],
+    "quotemark": [
+      false,
+      "double"
+    ],
+    "semicolon": {
+      "options": [
+        "always"
+      ]
+    },
+    "space-before-function-paren": {
+      "options": {
+        "anonymous": "never",
+        "asyncArrow": "always",
+        "constructor": "never",
+        "method": "never",
+        "named": "never"
+      }
+    },
+    "typedef": [
+      false, // IMPORTANT TO SET TRUE ON NEW PROJECTS
+      "call-signature"
+    ],
+    "object-literal-shorthand": false,
+    "max-line-length": [true, 200],
+    "trailing-comma": false,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "variable-name": false,
+    /*"variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-pascal-case"
+      ]
+    },*/
+    "ext-variable-name": [
+      true,
+      [
+        "property",
+        "private",
+        "camel",
+        "require-leading-underscore"
+      ]
+    ],
+    "no-string-literal": false,
+    "whitespace": {
+      "options": [
+        "check-decl",
+        "check-operator",
+        "check-separator",
+        "check-type",
+        "check-typecast",
+        "check-module"
+      ]
+    },
+    "component-class-suffix": true,
+    "contextual-lifecycle": true,
+    "directive-class-suffix": true,
+    "no-conflicting-lifecycle": true,
+    "no-host-metadata-property": true,
+    "no-input-rename": true,
+    "no-inputs-metadata-property": true,
+    "no-output-native": true,
+    "no-output-on-prefix": true,
+    "no-output-rename": true,
+    "no-outputs-metadata-property": true,
+    "template-banana-in-box": true,
+    "template-no-negated-async": true,
+    "use-lifecycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ]
+  }
+}

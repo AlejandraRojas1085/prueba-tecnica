@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+$black: #ffffff;
+$transparent: transparent;
+$dullWhite: #f6f6f6;
+$easing: cubic-bezier(0.6, 0.05, 0.28, 0.91);
+
+.wrapper {
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  display: flex;
+}
+
+#ScrollBar::-webkit-scrollbar {
+  width: 8px;
+  background-color: #e4e4e3;
+}
+
+#ScrollBar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #cacaca;
+}
+
+.config_active {
+  position: absolute;
+  width: 50%;
+  height: 110%;
+  background-color: #dfe6f533;
+  z-index: 10;
+}
+
+.profile_active {
+  position: absolute;
+  right: 0%;
+  width: 50%;
+  height: 110%;
+  background-color: #acbad433;
+  z-index: 10;
+}
+
+$break-medium: 900px;
+$break-small: 600px;
+.user-manager {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 13vw;
+  height: 11vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 11);
+  display: flex;
+  color: black;
+  z-index: 1;
+}
+
+.icon-manage {
+  margin: auto;
+  height: 5vmin;
+  width: auto;
+  cursor: pointer;
+}
+
+.no-config {
+
+  right: 24%;
+
+}
+//
+// SIDENAV RESPONSIVE
+//
+
+.div-router-outlet {
+  background-color: #ffffff;
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
+.btn-responsive {
+  height: 11vh;
+  width: 10vw;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  .mat-icon-open-home {
+    color: #fff;
+    margin: auto;
+    width: auto;
+    max-height: 100%;
+  }
+}
+
+.div-img-helios {
+  display: flex;
+  cursor: pointer;
+
+  .img-helios {
+    margin: auto;
+    padding: 2rem;
+  }
+}
+
+.container-sidenav {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .wrapper_sidebar {
+    display: none;
+  }
+
+  .btn-responsive {
+    height: 11vh;
+    width: 10vw;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    .mat-icon-open-home {
+      color: #fff;
+      margin: auto;
+      width: auto;
+      max-height: 100%;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .btn-responsive {
+    display: none;
+  }
+
+  .sidebar-hidden-control {
+    display: none;
+  }
+}
+.black{
+  color: black;
+}

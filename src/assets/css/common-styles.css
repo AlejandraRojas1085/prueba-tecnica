@@ -1,0 +1,53 @@
+.statB__level__one {
+    background: rgba(0, 29, 84, 0.8);
+    background: -moz-linear-gradient(
+        left,
+        rgba(0, 29, 84, 0.8) 0%,
+        rgba(1, 20, 51, 0.8) 30%,
+        rgba(1, 13, 33, 0.8) 62%,
+        rgba(1, 13, 33, 0.8) 71%,
+        rgba(0, 10, 26, 0.8) 100%
+    );
+    background: -webkit-gradient(
+        left top,
+        right top,
+        color-stop(0%, rgba(0, 29, 84, 0.8)),
+        color-stop(30%, rgba(1, 20, 51, 0.8)),
+        color-stop(62%, rgba(1, 13, 33, 0.8)),
+        color-stop(71%, rgba(1, 13, 33, 0.8)),
+        color-stop(100%, rgba(0, 10, 26, 0.8))
+    );
+    background: -webkit-linear-gradient(
+        left,
+        rgba(0, 29, 84, 0.8) 0%,
+        rgba(1, 20, 51, 0.8) 30%,
+        rgba(1, 13, 33, 0.8) 62%,
+        rgba(1, 13, 33, 0.8) 71%,
+        rgba(0, 10, 26, 0.8) 100%
+    );
+    background: -o-linear-gradient(
+        left,
+        rgba(0, 29, 84, 0.8) 0%,
+        rgba(1, 20, 51, 0.8) 30%,
+        rgba(1, 13, 33, 0.8) 62%,
+        rgba(1, 13, 33, 0.8) 71%,
+        rgba(0, 10, 26, 0.8) 100%
+    );
+    background: -ms-linear-gradient(
+        left,
+        rgba(0, 29, 84, 0.8) 0%,
+        rgba(1, 20, 51, 0.8) 30%,
+        rgba(1, 13, 33, 0.8) 62%,
+        rgba(1, 13, 33, 0.8) 71%,
+        rgba(0, 10, 26, 0.8) 100%
+    );
+    background: linear-gradient(
+        to right,
+        rgba(0, 29, 84, 0.8) 0%,
+        rgba(1, 20, 51, 0.8) 30%,
+        rgba(1, 13, 33, 0.8) 62%,
+        rgba(1, 13, 33, 0.8) 71%,
+        rgba(0, 10, 26, 0.8) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d54', endColorstr='#000a1a', GradientType=1 );
+}

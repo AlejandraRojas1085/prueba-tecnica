@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+.card-container {
+	margin-left: 7%;
+}
+
+.example-card {
+	display       : inline-flex;
+	flex-direction: row;
+	width         : 450px;
+	height        : 15%;
+	text-align    : center;
+	align-items   : center;
+	margin        : auto;
+}
+
+.card-image {
+	width: 80%;
+}
+
+.number-of {
+	font-size  : xx-large;
+	font-weight: bold;
+}
+
+
+.campaign-report {
+	width : 20%;
+	margin: 0px;
+}
+
+.campaign-details {
+	width : 80%;
+	margin: 0px;
+}
+
+.col-container {
+	display: table;
+	width  : 100%;
+	height : 100%;
+}
+
+.col {
+	text-align: center;
+	display   : table-cell;
+	padding   : 0px;
+}
+
+.center-col {
+	border-right: 1px solid rgba(231, 226, 226, 0.205);
+	border-left : 5px solid rgb(255, 255, 255);
+}
+
+.data {
+	height          : 33.3333%;
+	background-color: red;
+}
+
+.data-contaier {
+	display: inline-block;
+	width  : 100%;
+	height : 100%;
+}
+
+.data-col {
+	width         : 20%;
+	display       : inline-block;
+	padding       : 0px;
+	vertical-align: middle;
+}
+
+.data-col p {
+	text-align: left;
+}
+
+.data-center-row {
+	border-top   : 1px solid rgba(196, 190, 190, 0.205);
+	border-bottom: 1px solid rgba(196, 190, 190, 0.205);
+}
+
+.data-name {
+	color: rgb(171, 201, 253);
+}
+
+.title {
+	color      : rgb(36, 37, 129);
+	font-size  : 25px;
+	font-weight: bold;
+}
+
+.campaing-number {
+	color      : rgb(36, 37, 129);
+	font-size  : 50px;
+	font-weight: bold;
+	margin-top : 20px;
+}
+
+.flex-card {
+	display        : flex;
+	color          : rgb(212, 212, 221);
+	font-size      : 25px;
+	font-weight    : bold;
+	justify-content: space-between;
+}
