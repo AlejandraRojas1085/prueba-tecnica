@@ -36,7 +36,6 @@ export class DashboardComponent implements OnInit {
 
   public ngOnInit() {
     this.getData().then();
-
   }
 
   /**
@@ -46,7 +45,7 @@ export class DashboardComponent implements OnInit {
     try {
       this.loading = true;
       this.elements = await this.dashboardService.getNewDashboardData();
-      console.log(this.elements); 
+     
        
       this.loading = false;
     } catch (e) {

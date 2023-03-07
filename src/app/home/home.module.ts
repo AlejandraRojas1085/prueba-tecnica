@@ -21,7 +21,7 @@ import { HomeComponent } from './home.component';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [
     CdkStepper

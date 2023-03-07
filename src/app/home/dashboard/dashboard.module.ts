@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { FormControlDirective, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -58,7 +59,8 @@ import { DashboardComponent } from './dashboard.component';
         MatTableModule,
         MatSortModule,
         NgxLoadingModule,
-        MatChipsModule
+        MatChipsModule,
+        HttpClientModule
     ]
 })
 export class DashboardModule { }

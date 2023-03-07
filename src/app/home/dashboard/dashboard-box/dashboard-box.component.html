@@ -1,32 +1,29 @@
-<div class="dashboard-box-container">
-    <form [formGroup]="formUploadExcel">
-        <div class="row mt-2 border p-3">
-          <div class="col-12 text-center mb-2">
-            <h4 class="text-secondary">Cargar provincias masivamente</h4>
-      
-            <input hidden type="file" [formControl]="inputFile" (change)="uploadFile($event)" #fileInput>
-      
-            <div class="row bg-white justify-content-center align-items-center">
-              <div class="col-6 mb-1 mt-3 text-center">
-                <p [class]="inputFile.invalid? 'text-danger' : 'text-black'">
-                  <b>{{ inputFile.invalid? 'Ningun archivo seleccionado' : file?.name }}</b>
-                </p>
-              </div>
-            </div>
-          </div>     
-          
-      
-          <div>
-            <button (click)="fileInput.click()" class="button">
-              <mat-icon>upload</mat-icon>
-              Cargar archivo excel
-            </button>
-          </div>
-      
-          
-        </div>     
-      
-      </form>
 
-    
-</div>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
