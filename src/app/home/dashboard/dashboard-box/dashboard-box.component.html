@@ -1,4 +1,3 @@
-
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="position">
@@ -27,3 +26,16 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+
+<div>
+  <table>
+    <tr *ngFor="let item of listStatesByTotalCovid">
+      <td>
+        {{item.name}} - {{ item.total}}
+      </td>
+      <td *ngIf="stateMinor">
+      
+      </td>
+    </tr>
+  </table>
+</div>
