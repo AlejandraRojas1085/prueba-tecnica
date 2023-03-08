@@ -74,6 +74,7 @@ export class DashboardBoxComponent implements OnInit {
     this.covidData = await this.dataToJson();
 
     this.covidData.Sheet1.forEach(async element => {
+      
       let accumulator = await this.accumulatorByRow(element)
       element.total = accumulator;
       await this.groupByProvince(element);
@@ -116,11 +117,23 @@ export class DashboardBoxComponent implements OnInit {
 
   async responseQuestions() {
     if (this.listStatesByTotalCovid.length > 0) {
-      let max = this.listStatesByTotalCovid.reduce((a,b)=> {
+      /* const max = this.listStatesByTotalCovid.reduce((acc, curr) => {       
+        const maxVal = Math.max(curr.total);
+        return Math.max(acc, maxVal);        
+      }, -Infinity);
+      console.log('acc',max) */
+
+      const mint = this.listStatesByTotalCovid.reduce((acc, curr) => { 
+        console.log(curr);
+              
+        const minVal = Math.min(curr.total);
+        return Math.min(acc, minVal);        
+      }, -Infinity);
+
+      console.log('acc',mint)
+
       
-        
-      }) 
-        
+      
     }
   }
 
