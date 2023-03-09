@@ -1,41 +1,64 @@
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-  </ng-container>
+<div class="container-info">
+  <div class="header">
+    <h4>COVID 19(Coronavirus)
+    </h4>
+    <h5> Información de acumulado de muertes por estado.</h5>
+  </div>
+</div>
+<div class="content-answers">
+  <p *ngIf="valueMajor">
+    <b>
+      Estado con mayor acumulado a la fecha:
+    </b>
+    {{valueMajor.name}} - {{valueMajor.total | number: '1.0-0'}}
+  </p>
+  <p *ngIf="valueMinor">
+    <b>
+      Estado con menor acumulado a la fecha
+    </b>
+    {{valueMinor.name}} - {{valueMinor.total | number: '1.0-0'}}
+  </p>
+  <p *ngIf="valueMajor">
+    El estado mas afectado fue {{valueMajor.name}}, registro un
+    total de {{valueMajor.total | number: '1.0-0'}} muertes por coronavirus, una
+    cifra alta si se compra con el resto de regiones.
+  </p>
+</div>
+<div class="content-table">
+  <div class="table">
+    <button>Nuevo registro</button>
+    <table mat-table [dataSource]="dataSource" class="table">
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-  </ng-container>
+      <ng-container matColumnDef="province_State">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element"> {{element.Province_State}} </td>
+      </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-  </ng-container>
+      <ng-container matColumnDef="population">
+        <th mat-header-cell *matHeaderCellDef> Población </th>
+        <td mat-cell *matCellDef="let element"> {{element.Population | number: '1.0-0'}} </td>
+      </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-  </ng-container>
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> Total muertes </th>
+        <td mat-cell *matCellDef="let element"> {{element.total | number: '1.0-0'}} </td>
+      </ng-container>     
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
 
-<div>
-  <table>
-    <tr *ngFor="let item of listStatesByTotalCovid">
-      <td>
-        {{item.name}} - {{ item.total}}
-      </td>
-      <td *ngIf="stateMinor">
-      
-      </td>
-    </tr>
-  </table>
+      <ng-container matColumnDef="percentage">
+        <th mat-header-cell *matHeaderCellDef> Porcentaje </th>
+        <td mat-cell *matCellDef="let element"> {{element.total / element.Population | number: '1.0-0' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let element">  </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
 </div>

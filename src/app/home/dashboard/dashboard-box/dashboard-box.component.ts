@@ -1,26 +1,36 @@
-import { element } from 'protractor';
-
 import { Component, OnInit, ViewChild } from "@angular/core";
+
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
 import { ReadCsvService } from "src/app/services/read-csv.service";
 
-import { MatPaginator } from "@angular/material/paginator";
-import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from '@angular/material/table';
 import * as XLSX from 'xlsx';
-import { resolve } from 'dns';
-import { log } from 'console';
+
+export interface CovidSource {
+  province_State: string;
+  population: number;
+  total: number;
+  percentage: string;
+  options: string
+}
+
 @Component({
   selector: "app-dashboard-box",
   templateUrl: "./dashboard-box.component.html",
   styleUrls: ["./dashboard-box.component.scss"],
 })
 export class DashboardBoxComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  displayedColumns: string[] = ['province_State', 'population', 'total', 'percentage', 'options'];
+  data: CovidSource[] = [];
+  dataSource: any;
+
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   covidData: any;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource: any;
+  valueMajor: any;
+  valueMinor: any;
 
   resultsLength = 0;
   isLoadingResults = true;
@@ -34,6 +44,8 @@ export class DashboardBoxComponent implements OnInit {
     name: null,
     total: 0,
   }
+
+
 
   constructor(
     private readCsvService: ReadCsvService
@@ -70,16 +82,27 @@ export class DashboardBoxComponent implements OnInit {
     });
   }
 
+  async readData() {     
+    if (this.covidData) {
+      this.dataSource = new MatTableDataSource<CovidSource>(this.covidData.Sheet1)
+      
+      this.dataSource.paginator = this.paginator;      
+    }
+  }
+
   async getState() {
-    this.covidData = await this.dataToJson();
+    this.covidData = await this.dataToJson(); 
 
     this.covidData.Sheet1.forEach(async element => {
+      console.log(element);
       
+
       let accumulator = await this.accumulatorByRow(element)
       element.total = accumulator;
-      await this.groupByProvince(element);
-
+      this.groupByProvince(element);
     });
+
+    this.readData();
   }
 
   async accumulatorByRow(item: any) {
@@ -100,9 +123,10 @@ export class DashboardBoxComponent implements OnInit {
     const find = this.listStatesByTotalCovid.find(item => item.name === element.Province_State);
 
     if (!find) {
+
       let province = {
         name: element.Province_State,
-        total: element.total
+        total: element.total       
       };
 
       this.listStatesByTotalCovid = [province, ...this.listStatesByTotalCovid];
@@ -116,26 +140,10 @@ export class DashboardBoxComponent implements OnInit {
   }
 
   async responseQuestions() {
-    if (this.listStatesByTotalCovid.length > 0) {
-      /* const max = this.listStatesByTotalCovid.reduce((acc, curr) => {       
-        const maxVal = Math.max(curr.total);
-        return Math.max(acc, maxVal);        
-      }, -Infinity);
-      console.log('acc',max) */
+    const maxObj = this.listStatesByTotalCovid.reduce((prev, current) => (prev.total > current.total) ? prev : current);
+    const minObj = this.listStatesByTotalCovid.reduce((prev, current) => (prev.total < current.total) ? prev : current);
 
-      const mint = this.listStatesByTotalCovid.reduce((acc, curr) => { 
-        console.log(curr);
-              
-        const minVal = Math.min(curr.total);
-        return Math.min(acc, minVal);        
-      }, -Infinity);
-
-      console.log('acc',mint)
-
-      
-      
-    }
+    this.valueMajor = maxObj;
+    this.valueMinor = minObj;
   }
-
-  
 } 

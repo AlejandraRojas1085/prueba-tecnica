@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -60,7 +61,8 @@ import { DashboardComponent } from './dashboard.component';
         MatSortModule,
         NgxLoadingModule,
         MatChipsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatPaginatorModule
     ]
 })
 export class DashboardModule { }
