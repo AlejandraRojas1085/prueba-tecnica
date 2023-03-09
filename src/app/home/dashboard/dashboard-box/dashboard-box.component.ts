@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from "@angular/router";
 
 import { ReadCsvService } from "src/app/services/read-csv.service";
 
@@ -13,7 +14,10 @@ export interface CovidSource {
   population: number;
   total: number;
   percentage: string;
-  options: string
+  options: string,
+  date_one: string
+  date_two: string,
+  date_three: string
 }
 
 @Component({
@@ -22,7 +26,7 @@ export interface CovidSource {
   styleUrls: ["./dashboard-box.component.scss"],
 })
 export class DashboardBoxComponent implements OnInit {
-  displayedColumns: string[] = ['province_State', 'population', 'total', 'percentage', 'options'];
+  displayedColumns: string[] = ['province_State', 'population', 'total', 'percentage', 'date_one', 'date_two', 'date_three', 'options'];
   data: CovidSource[] = [];
   dataSource: any;
 
@@ -48,55 +52,37 @@ export class DashboardBoxComponent implements OnInit {
 
 
   constructor(
-    private readCsvService: ReadCsvService
+    private readCsvService: ReadCsvService,
+    private router: Router
   ) { }
 
 
   public ngOnInit() {
-    this.getState();
+    this.getDataToJson()
   }
 
-  async getData() {
-    return new Promise((resolve) => {
-      this.readCsvService.getData().subscribe(async data => {
-        resolve(data)
-      });
+  async getDataToJson() {
+    this.readCsvService.getData().subscribe(async data => {
+
+      this.covidData = await this.readCsvService.dataToJson(data);
+
+      if (this.covidData) {
+       this.getState()
+      }
+
     })
   }
 
-  async dataToJson() {
-    return new Promise(async (resolve) => {
-      let data = await this.getData();
+  async readData() {
+    this.dataSource = new MatTableDataSource<CovidSource>(this.covidData.Sheet1)
 
-      let workBook = null;
-      let jsonData = null;
-
-      workBook = XLSX.read(data, { type: 'binary' });
-      jsonData = workBook.SheetNames.reduce((initial, name) => {
-        const sheet = workBook.Sheets[name];
-        initial[name] = XLSX.utils.sheet_to_json(sheet);
-        return initial;
-      }, {});
-
-      resolve(jsonData);
-    });
-  }
-
-  async readData() {     
-    if (this.covidData) {
-      this.dataSource = new MatTableDataSource<CovidSource>(this.covidData.Sheet1)
-      
-      this.dataSource.paginator = this.paginator;      
-    }
+    this.dataSource.paginator = this.paginator;
   }
 
   async getState() {
-    this.covidData = await this.dataToJson(); 
+    await this.readData();
 
-    this.covidData.Sheet1.forEach(async element => {
-      console.log(element);
-      
-
+    this.covidData.Sheet1.forEach(async element => { 
       let accumulator = await this.accumulatorByRow(element)
       element.total = accumulator;
       this.groupByProvince(element);
@@ -126,7 +112,7 @@ export class DashboardBoxComponent implements OnInit {
 
       let province = {
         name: element.Province_State,
-        total: element.total       
+        total: element.total
       };
 
       this.listStatesByTotalCovid = [province, ...this.listStatesByTotalCovid];
@@ -146,4 +132,10 @@ export class DashboardBoxComponent implements OnInit {
     this.valueMajor = maxObj;
     this.valueMinor = minObj;
   }
-} 
+
+  new() {
+    console.log(1);
+
+    this.router.navigate(['/home/dashboard/new'])
+  }
+}

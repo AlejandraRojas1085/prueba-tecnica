@@ -28,8 +28,6 @@ import { HomeModule } from '../home.module';
 import { DashboardBoxComponent } from './dashboard-box/dashboard-box.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-
-
 @NgModule({
   declarations: [
     DashboardComponent,
