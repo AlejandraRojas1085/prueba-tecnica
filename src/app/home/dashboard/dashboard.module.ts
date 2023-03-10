@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { FormControlDirective, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -26,12 +26,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxLoadingModule } from 'ngx-loading';
 import { HomeModule } from '../home.module';
 import { DashboardBoxComponent } from './dashboard-box/dashboard-box.component';
+import { DashboardNewComponent } from './dashboard-new/dashboard-new.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 @NgModule({
   declarations: [
     DashboardComponent,
-    DashboardBoxComponent
+    DashboardBoxComponent,
+    DashboardNewComponent
   ],
     imports: [
         CommonModule,
@@ -60,7 +62,7 @@ import { DashboardComponent } from './dashboard.component';
         NgxLoadingModule,
         MatChipsModule,
         HttpClientModule,
-        MatPaginatorModule
+        MatPaginatorModule,                
     ]
 })
 export class DashboardModule { }

@@ -1,75 +1,65 @@
 <div class="container-info">
   <div class="header">
-    <h4>COVID 19(Coronavirus)
-    </h4>
+    <h4>COVID 19(Coronavirus)</h4>
     <h5> Información de acumulado de muertes por estado.</h5>
   </div>
 </div>
+
 <div class="content-answers">
   <p *ngIf="valueMajor">
-    <b>
-      Estado con mayor acumulado a la fecha:
-    </b>
+    <b>Estado con mayor acumulado a la fecha:</b>
     {{valueMajor.name}} - {{valueMajor.total | number: '1.0-0'}}
   </p>
+
   <p *ngIf="valueMinor">
-    <b>
-      Estado con menor acumulado a la fecha
-    </b>
+    <b>Estado con menor acumulado a la fecha:</b>
     {{valueMinor.name}} - {{valueMinor.total | number: '1.0-0'}}
   </p>
-  <p *ngIf="valueMajor">
-    El estado mas afectado fue {{valueMajor.name}}, registro un
-    total de {{valueMajor.total | number: '1.0-0'}} muertes por coronavirus, una
-    cifra alta si se compra con el resto de regiones.
+  
+  <p *ngIf="valueMajor" class="text">
+    Es necesario para interpretar correctamente estos datos saber que Estados Unidos, 
+    es uno de los países mas poblados del mundo y por ello fue el mas afectado 
+    en relación a las muertes por coronavirus, por lo tanto las regiones acumularon muchas muertes
+    como {{valueMajor.name}}, que registro un
+    total de {{valueMajor.total | number: '1.0-0'}}, una
+    cifra alta si se compra con el resto de estados.
   </p>
 </div>
+
 <div class="content-table">
   <div class="table">
-    <button (click)="new()">Nuevo registro</button>
-    <table mat-table [dataSource]="dataSource" class="table">
+    <button class="btn" (click)="new()">Nuevo registro</button>
 
+    <table mat-table [dataSource]="dataSource" class="table">
       <ng-container matColumnDef="province_State">
         <th mat-header-cell *matHeaderCellDef> Estado </th>
-        <td mat-cell *matCellDef="let element"> {{element.Province_State}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="population">
         <th mat-header-cell *matHeaderCellDef> Población </th>
-        <td mat-cell *matCellDef="let element"> {{element.Population | number: '1.0-0'}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.population | number: '1.0-0'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="total">
         <th mat-header-cell *matHeaderCellDef> Total muertes </th>
         <td mat-cell *matCellDef="let element"> {{element.total | number: '1.0-0'}} </td>
-      </ng-container>     
-
+      </ng-container>
 
       <ng-container matColumnDef="percentage">
         <th mat-header-cell *matHeaderCellDef> Porcentaje </th>
-        <td mat-cell *matCellDef="let element"> {{element.total / element.Population | number: '1.0-0' }} </td>
+        <td mat-cell *matCellDef="let element"> {{(element.total * 100) / element.population | number: '1.0-0' }}% </td>
       </ng-container>
 
       <ng-container matColumnDef="date_one">
         <th mat-header-cell *matHeaderCellDef> 7/8/20 </th>
-        <td mat-cell *matCellDef="let element">  {{element['7/8/20']  }}</td>
+        <td mat-cell *matCellDef="let element"> {{element.date_one }}</td>
       </ng-container>
 
       <ng-container matColumnDef="date_two">
         <th mat-header-cell *matHeaderCellDef> 1/25/21</th>
-        <td mat-cell *matCellDef="let element">  {{element['1/25/21']  }}</td>
+        <td mat-cell *matCellDef="let element"> {{element.date_two }}</td>
       </ng-container>
-
-      <ng-container matColumnDef="date_three">
-        <th mat-header-cell *matHeaderCellDef> 7/9/20      </th>
-        <td mat-cell *matCellDef="let element">  {{element['7/9/20']  }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="options">
-        <th mat-header-cell *matHeaderCellDef> Opciones </th>
-        <td mat-cell *matCellDef="let element">  </td>
-      </ng-container>
-      
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

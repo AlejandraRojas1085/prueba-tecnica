@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   private static validateName(name: string){
-    if(!name || name === "null" || name === "undefined"){
+    if(!name || name === "Alejandra" || name === "Maria"){
       return "";
     }
     return name;

@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
   /**
    * login The user into system
    */
-  public async login() {
+  public login() {
     try {
       if (this.form.invalid) {
         return this.toastService.error("El usuario y contraseña son obligatorios");
@@ -97,13 +97,18 @@ export class LoginComponent implements OnInit {
         const user = this.form.value["user"];
         const password = this.form.value["password"];
         localStorage.setItem("RememberMe", this.rememberUser ? "true" : "false");
-        // validate credentials
-        //
-        this.toastService.success(
-          "Bienvenido '" + this.authService.getNames({firstName: true, lastName: true}) + "'",
-          "Exito"
-        );
-        this.router.navigateByUrl("/home/dashboard");
+
+        if (user == 'alejandra' && password == '1234') {
+          this.toastService.success(
+            "Bienvenido '" + this.authService.getNames({ firstName: true, lastName: true }) + "'",
+            "Exito"
+          );
+          this.router.navigateByUrl("/home/dashboard");
+        } else {
+          this.loginInProgress = false;
+
+          this.toastService.info("Las credenciales de acceso no son correctas");
+        }
       }
     } catch (e) {
       console.log(e);

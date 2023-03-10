@@ -1,55 +1,71 @@
 @media screen and (min-width: 800px) {
-	container-info{
-		float:left;
-		width:50%;
-	}
+  container-info {
+    float: left;
+    width: 50%;
+  }
 }
 
 @media screen and (min-width: 1025px) {
-	container-info {
-	float:left;
-	width:33%;
+  container-info {
+    float: left;
+    width: 33%;
+  }
 }
-}
 
-.container-info{
-  float:none;
-	width:100%;
-} 
-
-
-.content-table{
+.container-info {
+  float: none;
   width: 100%;
 }
 
-.table{
+.content-table {
+  width: 100%;
+}
+
+.table {
   border: 1px solid#5f5f6033;
   width: 80%;
   margin: auto;
 }
 
-.header{
+.header {
   position: relative;
   left: 10%;
   line-height: 200px;
   margin: 10px;
 
-  h4{
-    margin:0px;
+  h4 {
+    margin: 0px;
   }
-  h5{
+  h5 {
     margin: 0px;
   }
 }
 
-.content-answers{
+.content-answers {
   position: relative;
   left: 10%;
   line-height: 200px;
   margin: 10px;
   width: 80%;
-  p{
+
+  .text {
     margin: 0px;
+   text-align: justify;
+    color: #4d4c4d;
   }
 }
-  
+
+.btn {
+  font-family: "roboto";
+  background: #5c5d62;
+  background: -webkit-linear-gradient(to right, #514a52, #b8c0da);
+  background: linear-gradient(to right, #7f7080, #a3adcc);
+  border: none;
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  color: #fff;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}

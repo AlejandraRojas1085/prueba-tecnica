@@ -1,24 +1,28 @@
 <div class="content-form">
-  <form action="" class="form">
+  <form  [formGroup]="formRegister" class="form">
     <h5>Registro</h5>
     <div class="grupo">
-      <input type="date" name="" id="name" required><span class="barra"></span>
+      <input type="date"  formControlName="date_new" name="" id="name" required><span class="barra"></span>
       <label for="">Fecha</label>
     </div>
 
-    <div class="grupo">
-      <input type="text" name="" id="name" required><span class="barra"></span>
+    <div class="grupo" *ngIf="covidData">
+      <select name=""  formControlName="city" id="" class="select" (change)="getPopulation()" required>
+        <option *ngFor="let item of covidData.Sheet1" [value]="item.Admin2+','+item.Population+','+item.Province_State">
+          {{ item.Admin2  }} 
+        </option>
+      </select>      
       <label for="">Pueblo</label>
     </div>
     <div class="grupo">
-      <input type="text" name="" id="email" required><span class="barra"></span>
+      <input type="text" formControlName="Population" readonly  name="population" id="population" required><span class="barra"></span>
       <label for="">Población</label>
     </div>
     <div class="grupo">
-      <input type="text" name="" id="password" required><span class="barra"></span>
+      <input type="number"  formControlName="number_deaths" name="" id="password" required><span class="barra"></span>
       <label for="">Numero de muertes</label>
     </div>
-    <button type="submit">Agregar</button>
-    <button type="submit">Cancelar</button>
+    <button type="button" (click)="register()">Agregar</button>
+    <button type="button" (click)="back()">Cancelar</button>
   </form>
 </div>
