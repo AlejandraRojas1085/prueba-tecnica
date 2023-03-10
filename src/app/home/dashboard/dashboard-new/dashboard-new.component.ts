@@ -38,8 +38,7 @@ export class DashboardNewComponent implements OnInit {
 
   async getData() {
     this.readCsvService.getData().subscribe(async data => {
-      this.covidData = await this.readCsvService.dataToJson(data);
-      console.log(this.covidData);
+      this.covidData = await this.readCsvService.dataToJson(data);  
     })
   }
 
